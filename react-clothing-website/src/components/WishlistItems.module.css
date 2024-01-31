@@ -1,0 +1,87 @@
+.productscontainer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.productcontainer {
+  border: 1px solid #99979769;
+  border-radius: 15px;
+  height: 450px;
+  width: 302px;
+  margin: 30px 80px 15px 0;
+}
+.productdetails {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+.productimage {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+.wishlist {
+  position: absolute;
+  top: 3px;
+  left: 243px;
+  background-color: transparent;
+  border-radius: 50%;
+  color: white;
+}
+.wishlist:hover {
+  color: red;
+}
+.product_brand,
+.product_details {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  color: #930e2aeb;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 6px;
+  text-align: center;
+}
+.price_check {
+  border: 1px dashed grey;
+  border-radius: 30px;
+  background-color: #f93b3bfc;
+  text-align: center;
+}
+.productprice {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 12px;
+  margin-left: 7px;
+  color: black;
+}
+.productOldPrice {
+  margin-left: 7px;
+  font-style: italic;
+  font-size: medium;
+  text-decoration: line-through;
+  color: lightsalmon;
+}
+.discount {
+  font-size: large;
+  font-weight: 600;
+  margin-left: 4px;
+  color: brown;
+}
+.productcart {
+  width: 100%;
+  font-size: 22px;
+  color: #832729;
+  margin: 0px 7px 0px 0px;
+}
+.btnaddcart {
+  background-color: rgb(69, 120, 69);
+}
+.Removebtn,
+.Addbtn {
+  margin-top: 10px;
+  position: relative;
+  left: 30%;
+}

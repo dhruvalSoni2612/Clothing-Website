@@ -1,0 +1,101 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+.navBar_brand {
+  padding-top: var(--bs-navbar-brand-padding-y);
+  padding-bottom: var(--bs-navbar-brand-padding-y);
+  margin-right: var(--bs-navbar-brand-margin-end);
+  font-size: 50px;
+  color: var(--bs-navbar-brand-color);
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: "Rubik Glitch Pop", system-ui;
+}
+.containernav {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: 8%;
+  margin-left: 8%;
+}
+.item_font {
+  font-size: x-large;
+  font-weight: 500;
+  font-family: "Josefin Sans", sans-serif;
+  color: darkslategrey;
+}
+.search_bar {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  width: 30%;
+}
+.search_input {
+  display: flex;
+  flex-wrap: wrap;
+  height: 45px;
+  width: 650px;
+  flex-grow: 1;
+  min-width: 230px;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: none;
+}
+.Searchicon {
+  box-sizing: content-box;
+  height: 43px;
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: none;
+  color: #424242;
+}
+.action_container {
+  color: #424242;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart_position {
+  position: relative;
+  top: 8px;
+}
+
+.cart_item_count {
+  position: relative;
+  background-color: rgba(255, 2, 2, 0.683);
+  border-radius: 40%;
+  width: 12px;
+  color: white;
+  left: 10px;
+  bottom: 48px;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 18px;
+  height: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.account_container {
+  display: flex;
+  border: 2px solid grey;
+  border-radius: 30px;
+  background-color: #0f0f0f14;
+  width: 150px;
+  justify-content: space-evenly;
+}
