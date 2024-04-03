@@ -1,0 +1,56 @@
+.loginForm {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+
+.loginForm h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup input[type="email"],
+.formGroup input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.formGroup button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formGroup button:hover {
+  background-color: #0056b3;
+}
+
+.signupText {
+  text-align: center;
+  font-size: 14px;
+}
+
+.signupText a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signupText a:hover {
+  text-decoration: underline;
+}

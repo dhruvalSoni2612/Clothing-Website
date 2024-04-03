@@ -1,3 +1,7 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
 .banner_image1 {
   width: 100%;
 }
@@ -24,7 +28,9 @@
 .productName_banner {
   text-align: center;
 }
-
+.productName_banner img {
+  width: 100%;
+}
 .topStyle_img,
 .newArrival_img,
 .celebStyle_img {
