@@ -73,13 +73,6 @@ const CartSummary = () => {
             </>
           )}
         </div>
-
-        {/* <button
-          type="button"
-          className={`btn btn-secondary ${css.placeOrder_btn}`}
-        >
-          Place Order
-        </button> */}
       </div>
     </div>
   );
