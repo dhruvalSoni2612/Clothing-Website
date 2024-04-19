@@ -12,14 +12,14 @@ const Login = () => {
     e.preventDefault();
     axios
       .post("http://localhost:3001/login", { email, password })
-      .then((result) => {
-        if (result.data === "success") {
-          navigate("/");
-        } else {
-          alert("Incorrect email or Password ");
-        }
+      .then((response) => {
+        const token = response.data.token;
+        localStorage.setItem("token", token); // Store token in local storage
+        navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert("Incorrect email or password");
+      });
   };
 
   return (

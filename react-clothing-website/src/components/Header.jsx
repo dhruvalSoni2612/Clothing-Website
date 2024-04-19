@@ -5,9 +5,21 @@ import { MdLogin } from "react-icons/md";
 import { FaCartArrowDown, FaRegHeart } from "react-icons/fa";
 import css from "../components/Header.module.css";
 import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 
 const Header = () => {
   const cart = useSelector((store) => store.cart);
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    // Update isLoggedIn state when localStorage changes
+    setIsLoggedIn(localStorage.getItem("token"));
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(null); // Set isLoggedIn to null to trigger re-render
+  };
 
   return (
     <header>
@@ -65,22 +77,33 @@ const Header = () => {
             </Link>
           </div>
           <div className={css.account_container}>
-            <div>
-              <Link to="/login" style={{ textDecoration: "none" }}>
+            {isLoggedIn ? (
+              <div onClick={handleLogout}>
                 <div className={css.action_container}>
                   <MdLogin size={24} />
-                  <span className={css.action_name}>Login</span>
+                  <span className={css.action_name}>Logout</span>
                 </div>
-              </Link>
-            </div>
-            <div>
-              <Link to="/register" style={{ textDecoration: "none" }}>
-                <div className={css.action_container}>
-                  <IoPersonAdd size={24} />
-                  <span className={css.action_name}>Sign up</span>
+              </div>
+            ) : (
+              <>
+                <div>
+                  <Link to="/login" style={{ textDecoration: "none" }}>
+                    <div className={css.action_container}>
+                      <MdLogin size={24} />
+                      <span className={css.action_name}>Login</span>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
-            </div>
+                <div>
+                  <Link to="/register" style={{ textDecoration: "none" }}>
+                    <div className={css.action_container}>
+                      <IoPersonAdd size={24} />
+                      <span className={css.action_name}>Sign up</span>
+                    </div>
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </nav>

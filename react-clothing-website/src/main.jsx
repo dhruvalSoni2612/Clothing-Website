@@ -11,6 +11,10 @@ import { Provider } from "react-redux";
 import trendyClothingStore from "./store/index.js";
 import SignUp from "./routes/SignUp.jsx";
 import Login from "./routes/Login.jsx";
+import axios from "axios";
+
+axios.defaults.headers.common["Authorization"] =
+  "Bearer " + localStorage.getItem("token");
 
 const router = createBrowserRouter([
   {

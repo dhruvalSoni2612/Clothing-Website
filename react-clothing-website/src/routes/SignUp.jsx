@@ -1,3 +1,4 @@
+// SignUp.js
 import React, { useState } from "react";
 import styles from "../components/SignUp.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,15 +15,15 @@ const SignUp = () => {
 
     axios
       .post("http://localhost:3001/register", { name, email, password })
-      .then((result) => {
-        if (result.status === 200) {
-          alert("Registration Successful!");
-          navigate("/login");
-        } else {
-          alert("Try again");
-        }
+      .then((response) => {
+        const token = response.data.token;
+        localStorage.setItem("token", token); // Store token in local storage
+        alert("Registration Successful!");
+        navigate("/login");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert("Registration failed. Please try again.");
+      });
 
     setName("");
     setEmail("");

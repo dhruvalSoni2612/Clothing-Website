@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const UsersModel = require("./models/Users");
 
 const app = express();
@@ -9,26 +11,59 @@ app.use(cors());
 
 mongoose.connect("mongodb://127.0.0.1:27017/users");
 
+// Secret key for JWT
+const secretKey = "your_secret_key"; // Change this to a secure random key in production
+
+// Function to generate JWT token
+const generateToken = (user) => {
+  return jwt.sign({ userId: user._id }, secretKey, { expiresIn: "1h" });
+};
+
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   UsersModel.findOne({ email: email }).then((user) => {
     if (user) {
-      if (user.password === password) {
-        res.json("success");
-      } else {
-        res.json("password is incorrect");
-      }
+      // Compare passwords
+      bcrypt.compare(password, user.password, (err, result) => {
+        if (err) {
+          res.status(500).json({ error: "Internal Server Error" });
+        }
+        if (result) {
+          // Passwords match, generate JWT token
+          const token = generateToken(user);
+          res.json({ token });
+        } else {
+          res.status(401).json({ error: "Invalid email or password" });
+        }
+      });
     } else {
-      res.json("user not found");
+      res.status(404).json({ error: "User not found" });
     }
   });
 });
 
 app.post("/register", (req, res) => {
-  UsersModel.create(req.body)
-    .then((User) => res.json(User))
-    .catch((err) => res.json(err));
+  const { name, email, password } = req.body;
+  // Hash password
+  bcrypt.hash(password, 10, (err, hash) => {
+    if (err) {
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+    UsersModel.create({ name, email, password: hash })
+      .then((user) => {
+        const token = generateToken(user);
+        res.status(201).json({ token });
+      })
+      .catch((err) => res.status(400).json({ error: err.message }));
+  });
 });
+
+// Add a logout route
+app.post("/logout", (req, res) => {
+  // Optionally, you can perform additional cleanup or token invalidation here
+  res.json({ message: "Logout successful" });
+});
+
 app.listen(3001, () => {
   console.log("server is running");
 });
