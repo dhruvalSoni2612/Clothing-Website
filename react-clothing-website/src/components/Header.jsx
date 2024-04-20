@@ -5,20 +5,46 @@ import { MdLogin } from "react-icons/md";
 import { FaCartArrowDown, FaRegHeart } from "react-icons/fa";
 import css from "../components/Header.module.css";
 import { useSelector } from "react-redux";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const cart = useSelector((store) => store.cart);
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token"));
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    // Update isLoggedIn state when localStorage changes
-    setIsLoggedIn(localStorage.getItem("token"));
+    const token = localStorage.getItem("token");
+    if (token) {
+      fetchUserInfo(token);
+    }
   }, []);
+
+  const fetchUserInfo = (token) => {
+    fetch("http://localhost:3001/user", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Unauthorized");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUserName(data.name);
+        setIsLoggedIn(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching user info:", error);
+      });
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    setIsLoggedIn(null); // Set isLoggedIn to null to trigger re-render
+    setIsLoggedIn(false);
+    setUserName("");
   };
 
   return (
@@ -76,33 +102,27 @@ const Header = () => {
               </div>
             </Link>
           </div>
-          <div className={css.account_container}>
-            {isLoggedIn ? (
-              <div onClick={handleLogout}>
-                <div className={css.action_container}>
-                  <MdLogin size={24} />
-                  <span className={css.action_name}>Logout</span>
+
+          <div className={css.dropdown}>
+            <button className={css.dropbtn}>
+              {isLoggedIn ? `Welcome, ${userName}` : "Account"}
+            </button>
+            {isLoggedIn && (
+              <div className={css.dropdownContent}>
+                <div onClick={handleLogout} className={css.dropdownItem}>
+                  Logout
                 </div>
               </div>
-            ) : (
-              <>
-                <div>
-                  <Link to="/login" style={{ textDecoration: "none" }}>
-                    <div className={css.action_container}>
-                      <MdLogin size={24} />
-                      <span className={css.action_name}>Login</span>
-                    </div>
-                  </Link>
-                </div>
-                <div>
-                  <Link to="/register" style={{ textDecoration: "none" }}>
-                    <div className={css.action_container}>
-                      <IoPersonAdd size={24} />
-                      <span className={css.action_name}>Sign up</span>
-                    </div>
-                  </Link>
-                </div>
-              </>
+            )}
+            {!isLoggedIn && (
+              <div className={css.dropdownContent}>
+                <Link to="/login" className={css.dropdownItem}>
+                  Login
+                </Link>
+                <Link to="/register" className={css.dropdownItem}>
+                  Sign up
+                </Link>
+              </div>
             )}
           </div>
         </div>

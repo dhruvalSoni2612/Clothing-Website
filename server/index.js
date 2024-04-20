@@ -58,6 +58,23 @@ app.post("/register", (req, res) => {
   });
 });
 
+app.get("/user", (req, res) => {
+  const token = req.headers.authorization.split(" ")[1]; // Get the token from the authorization header
+  jwt.verify(token, secretKey, (err, decoded) => {
+    if (err) {
+      res.status(401).json({ error: "Unauthorized" });
+    } else {
+      UsersModel.findById(decoded.userId).then((user) => {
+        if (user) {
+          res.json({ name: user.name });
+        } else {
+          res.status(404).json({ error: "User not found" });
+        }
+      });
+    }
+  });
+});
+
 // Add a logout route
 app.post("/logout", (req, res) => {
   // Optionally, you can perform additional cleanup or token invalidation here
