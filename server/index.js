@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27017/users");
+mongoose.connect("mongodb://127.0.0.1:27017/trendy");
 
 // Secret key for JWT
 const secretKey = "your_secret_key"; // Change this to a secure random key in production
