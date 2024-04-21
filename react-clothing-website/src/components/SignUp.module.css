@@ -1,10 +1,24 @@
 .signUpForm {
+  position: relative;
   max-width: 400px;
   margin: 30px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  overflow: hidden;
+}
+.signUpForm::before {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/images/main1.jpeg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8; /* Adjust the opacity value as needed (0.5 for 50% opacity) */
+  z-index: -1; /* Ensures the pseudo-element is behind the content */
 }
 
 .signUpForm h2 {
@@ -24,6 +38,7 @@
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.482);
 }
 
 .formGroup button {
@@ -32,13 +47,13 @@
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: #007bff68;
   color: #fff;
   cursor: pointer;
 }
 
 .formGroup button:hover {
-  background-color: #0056b3;
+  background-color: #0057b37f;
 }
 
 .loginText {
