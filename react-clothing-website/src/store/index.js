@@ -6,6 +6,7 @@ import cartSlice from "./cartSlice";
 import wishlistSlice from "./wishlistSlice";
 import celebStyleItemsSlice from "./celebStyleItemsSlice";
 import TopStyleItemsSlice from "./TopStyleItemsSlice";
+import fetchStatusSlice from "./fetchStatusSlice";
 
 const trendyClothingStore = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const trendyClothingStore = configureStore({
     cart: cartSlice.reducer,
     wishlist: wishlistSlice.reducer,
     celebStyle: celebStyleItemsSlice.reducer,
+    fetchStatus: fetchStatusSlice.reducer,
   },
 });
 export default trendyClothingStore;
