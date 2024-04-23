@@ -158,3 +158,49 @@ a {
 .dropdownItem {
   cursor: pointer;
 }
+
+/* Base styles remain the same */
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 1000px) {
+  .containernav {
+    /* flex-direction: column; Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+    margin-right: 0; /* Remove right margin */
+    margin-left: 0; /* Remove left margin */
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .search_bar {
+    width: 100%; /* Occupy full width */
+    margin-bottom: 1rem; /* Add some space between items */
+  }
+
+  .search_input {
+    width: 100%; /* Occupy full width */
+  }
+
+  .dropdown {
+    position: static; /* Change position to static */
+    display: block; /* Display as block */
+    margin-top: 1rem; /* Add some space between items */
+  }
+
+  .dropdownContent {
+    position: static; /* Change position to static */
+    display: none; /* Hide dropdown content by default */
+    width: 100%; /* Occupy full width */
+    box-shadow: none; /* Remove shadow */
+  }
+
+  .dropdown:hover .dropdownContent {
+    display: block; /* Show dropdown content on hover */
+  }
+
+  .dropbtn::after {
+    display: none; /* Hide dropdown arrow */
+  }
+}
