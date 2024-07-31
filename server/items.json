@@ -83,7 +83,7 @@
         "discount": 50
       },
       {
-        "id": "10",
+        "id": "010",
         "image": "../images/men10.avif",
         "item_brand": "JOMPERS",
         "item_detail": "Embroidered Long Kurta",
@@ -92,7 +92,7 @@
         "discount": 69
       },
       {
-        "id": "11",
+        "id": "011",
         "image": "../images/men11.avif",
         "item_brand": "GAP",
         "item_detail": "Men Logo Print Sweatshirt",
@@ -101,7 +101,7 @@
         "discount": 40
       },
       {
-        "id": "12",
+        "id": "012",
         "image": "../images/men12.avif",
         "item_brand": "GAP",
         "item_detail": "Men Ribbed Shawl Cardigan",

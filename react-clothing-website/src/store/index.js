@@ -7,6 +7,7 @@ import wishlistSlice from "./wishlistSlice";
 import celebStyleItemsSlice from "./celebStyleItemsSlice";
 import TopStyleItemsSlice from "./TopStyleItemsSlice";
 import fetchStatusSlice from "./fetchStatusSlice";
+import WomenSectionProductsSlice from "./WomenSectionProductsSlice";
 
 const trendyClothingStore = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const trendyClothingStore = configureStore({
     topStyle: TopStyleItemsSlice.reducer,
     NewArrivalItems: NewArrivalItemsSlice.reducer,
     MenSectionProducts: MenSectionProductsSlice.reducer,
+    WomenSectionProducts: WomenSectionProductsSlice.reducer,
     cart: cartSlice.reducer,
     wishlist: wishlistSlice.reducer,
     celebStyle: celebStyleItemsSlice.reducer,

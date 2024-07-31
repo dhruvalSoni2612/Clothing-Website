@@ -61,9 +61,9 @@ const Header = () => {
               </Link>
             </li>
             <li className={`nav-item ${css.item_font}`}>
-              <a className="nav-link" aria-current="page" href="#">
+              <Link className="nav-link" aria-current="page" to="/women">
                 Women
-              </a>
+              </Link>
             </li>
             <li className={`nav-item ${css.item_font}`}>
               <a className="nav-link" aria-current="page" href="#">

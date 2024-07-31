@@ -12,6 +12,7 @@ import trendyClothingStore from "./store/index.js";
 import SignUp from "./routes/SignUp.jsx";
 import Login from "./routes/Login.jsx";
 import axios from "axios";
+import Women from "./routes/Women.jsx";
 
 axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem("token");
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/men", element: <Men /> },
+      { path: "/women", element: <Women /> },
       { path: "/cart", element: <Cart /> },
       { path: "/wishlist", element: <Wishlist /> },
       { path: "/register", element: <SignUp /> },
