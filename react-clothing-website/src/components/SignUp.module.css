@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 .signUpForm::before {
-  content: ""; /* Required for pseudo-elements */
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -17,8 +17,8 @@
   background-image: url(../public/images/main1.jpeg);
   background-size: cover;
   background-position: center;
-  opacity: 0.8; /* Adjust the opacity value as needed (0.5 for 50% opacity) */
-  z-index: -1; /* Ensures the pseudo-element is behind the content */
+  opacity: 0.8;
+  z-index: -1;
 }
 
 .signUpForm h2 {

@@ -16,6 +16,7 @@ const Login = () => {
         const token = response.data.token;
         localStorage.setItem("token", token); // Store token in local storage
         navigate("/");
+        window.location.reload();
       })
       .catch((err) => {
         alert("Incorrect email or password");
