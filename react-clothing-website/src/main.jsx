@@ -13,6 +13,7 @@ import SignUp from "./routes/SignUp.jsx";
 import Login from "./routes/Login.jsx";
 import axios from "axios";
 import Women from "./routes/Women.jsx";
+import Kids from "./routes/Kids.jsx";
 
 axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem("token");
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/men", element: <Men /> },
       { path: "/women", element: <Women /> },
+      { path: "/kids", element: <Kids /> },
       { path: "/cart", element: <Cart /> },
       { path: "/wishlist", element: <Wishlist /> },
       { path: "/register", element: <SignUp /> },

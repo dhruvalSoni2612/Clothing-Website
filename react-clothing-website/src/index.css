@@ -24,6 +24,7 @@
   height: 100%;
   position: relative;
   top: 30px;
+  cursor: pointer;
 }
 .productName_banner {
   text-align: center;

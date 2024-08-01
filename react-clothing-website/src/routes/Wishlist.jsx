@@ -7,6 +7,7 @@ const Wishlist = () => {
   const wishlistItems = useSelector((state) => state.wishlist);
   const MenProduct = useSelector((state) => state.MenSectionProducts);
   const WomenProduct = useSelector((state) => state.WomenSectionProducts);
+  const KidsProduct = useSelector((state) => state.KidsSectionProducts);
 
   const menWishlistItems = MenProduct.filter((item) =>
     wishlistItems.includes(item.id)
@@ -14,8 +15,15 @@ const Wishlist = () => {
   const womenWishlistItems = WomenProduct.filter((item) =>
     wishlistItems.includes(item.id)
   );
+  const kidsWishlistItems = KidsProduct.filter((item) =>
+    wishlistItems.includes(item.id)
+  );
 
-  const finalItems = [...menWishlistItems, ...womenWishlistItems];
+  const finalItems = [
+    ...menWishlistItems,
+    ...womenWishlistItems,
+    ...kidsWishlistItems,
+  ];
 
   // const finalItems = MenProduct.filter(item => {
   //   const itemIndex = wishlistItems.indexOf(item.id);

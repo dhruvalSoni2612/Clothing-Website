@@ -8,14 +8,19 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
   const Menproducts = useSelector((state) => state.MenSectionProducts);
   const Womenproducts = useSelector((state) => state.WomenSectionProducts);
+  const Kidsproducts = useSelector((state) => state.KidsSectionProducts);
+
   const menCartItems = Menproducts.filter((item) =>
     cartItems.includes(item.id)
   );
   const womenCartItems = Womenproducts.filter((item) =>
     cartItems.includes(item.id)
   );
+  const kidsCartItems = Kidsproducts.filter((item) =>
+    cartItems.includes(item.id)
+  );
 
-  const finalItems = [...menCartItems, ...womenCartItems];
+  const finalItems = [...menCartItems, ...womenCartItems, ...kidsCartItems];
 
   // const finalItems = Menproducts.filter(item => {
   //   const itemIndex = cartItems.indexOf(item.id);
