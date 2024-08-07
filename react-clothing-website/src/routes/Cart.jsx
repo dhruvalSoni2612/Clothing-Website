@@ -22,11 +22,6 @@ const Cart = () => {
 
   const finalItems = [...menCartItems, ...womenCartItems, ...kidsCartItems];
 
-  // const finalItems = Menproducts.filter(item => {
-  //   const itemIndex = cartItems.indexOf(item.id);
-  //   return itemIndex >= 0;
-  // })
-
   return (
     <section className={css.cart_page}>
       <div className={css.cart_items_container}>
