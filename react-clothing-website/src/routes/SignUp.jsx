@@ -14,7 +14,11 @@ const SignUp = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3001/register", { name, email, password })
+      .post("https://clothingwebsiteserver.onrender.com/register", {
+        name,
+        email,
+        password,
+      })
       .then((response) => {
         const token = response.data.token;
         localStorage.setItem("token", token); // Store token in local storage

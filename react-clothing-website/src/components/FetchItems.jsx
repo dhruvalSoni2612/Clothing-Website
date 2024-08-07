@@ -12,7 +12,7 @@ const FetchItems = () => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetch("http://localhost:3001/items", { signal })
+    fetch("https://clothingwebsiteserver.onrender.com/items", { signal })
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(MenSectionProductsAction.addInitialItems(items[0]));
