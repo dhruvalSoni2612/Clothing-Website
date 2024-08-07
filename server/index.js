@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -7,6 +8,7 @@ const UsersModel = require("./models/Users");
 const bodyParser = require("body-parser");
 const { getStoredItems, storeItems } = require("./data/items");
 const app = express();
+port = process.env.PORT || 3001;
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
@@ -17,10 +19,10 @@ app.use((req, res, next) => {
   next();
 });
 
-mongoose.connect("mongodb://127.0.0.1:27017/trendy");
+mongoose.connect(process.env.MONGO_URL);
 
 // Secret key for JWT
-const secretKey = "xyzSecret123"; // Change this to a secure random key in production
+const secretKey = process.env.SECRET_KEY; // Change this to a secure random key in production
 
 // Function to generate JWT token
 const generateToken = (user) => {
@@ -112,6 +114,6 @@ app.post("/items", async (req, res) => {
   res.status(201).json({ message: "Stored new item.", item: newItem });
 });
 
-app.listen(3001, () => {
+app.listen(port, () => {
   console.log("server is running");
 });
