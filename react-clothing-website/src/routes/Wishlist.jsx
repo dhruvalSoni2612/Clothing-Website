@@ -38,9 +38,7 @@ const Wishlist = () => {
             <WishlistEmpty />
           ) : (
             finalItems.map((item) => (
-              <WishlistItems key={item.id} item={item}>
-                {" "}
-              </WishlistItems>
+              <WishlistItems key={item.id} item={item}></WishlistItems>
             ))
           )}
         </div>

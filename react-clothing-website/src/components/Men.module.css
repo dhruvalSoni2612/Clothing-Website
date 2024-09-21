@@ -9,9 +9,9 @@
 .productcontainer {
   border: 1px solid #99979769;
   border-radius: 15px;
-  height: 450px;
+  /* height: 450px; */
   width: 302px;
-  margin: 20px;
+  margin: 20px 20px 150px 20px;
 }
 
 .productdetails {
@@ -106,8 +106,7 @@
 
 @media (max-width: 768px) {
   .productcontainer {
-    height: auto;
-    width: 100%;
+    width: 200px;
     margin: 15px 0;
   }
 
@@ -148,6 +147,9 @@
 }
 
 @media (max-width: 480px) {
+  .productcontainer {
+    width: 150px;
+  }
   .product_brand,
   .product_details {
     font-size: 14px;
@@ -168,5 +170,11 @@
   .Removebtn,
   .Addbtn {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 330px) {
+  .productcontainer {
+    width: 100px;
   }
 }

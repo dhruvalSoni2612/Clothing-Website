@@ -15,6 +15,7 @@
 }
 .img-set {
   position: relative;
+  margin-bottom: 6px;
 }
 
 .img-set img {
@@ -46,6 +47,7 @@
 .celebStyle_img img {
   width: 100%;
   height: 100%;
+  padding-bottom: 6px;
 }
 .banner_image2 {
   width: 100%;
@@ -54,4 +56,15 @@
 .emptyMsg {
   color: rgba(249, 79, 79, 0.872);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+@media only screen and (max-width: 750px) {
+  .img-set, .imgs{
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .img-set, .imgs{
+    width: 150px;
+  }
 }
