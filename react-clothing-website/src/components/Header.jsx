@@ -1,7 +1,5 @@
 import { BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { IoPersonAdd } from "react-icons/io5";
-import { MdLogin } from "react-icons/md";
 import { FaCartArrowDown, FaRegHeart } from "react-icons/fa";
 import css from "../components/Header.module.css";
 import { useSelector } from "react-redux";
